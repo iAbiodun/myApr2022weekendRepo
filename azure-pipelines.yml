@@ -1,4 +1,14 @@
 # Maven package Java project Web App to Linux on Azure
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 # Build your Java project and deploy it to Azure as a Linux web app
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -9,13 +19,13 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '076c9449-f0fe-463d-8570-6daed2c27065'
+  azureSubscription: 'fcead251-d135-4d80-8913-9d7dc487f5a0'
 
   # Web app name
-  webAppName: 'mySuperAwesomeApp'
+  webAppName: 'javaApp-dev'
 
   # Environment name
-  environmentName: 'mySuperAwesomeApp'
+  environmentName: 'javaApp-dev'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
